@@ -3,6 +3,7 @@ import { Layout, Menu, Icon } from 'antd'
 import Agenda from '../components/agenda'
 import Meta from '../components/Meta'
 import agenda from '../fakeData/agenda'
+import Youtube from '../components/youtube'
 
 import { connect } from 'react-redux'
 import { startClock, serverRenderClock } from '../actions'
@@ -19,7 +20,7 @@ const views = {
 class Index extends Component {
     state = {
         collapsed: false,
-        view: '2',
+        view: '3',
     }
 
     static getInitialProps ({ reduxStore, req }) {
@@ -65,8 +66,13 @@ class Index extends Component {
             agendaView = (
                 <Examples />
             )
+        } else if (this.state.view === views.update) {
+            agendaView = (
+                <Youtube />
+            )
         }
         
+        console.log('this.state', this.state)
         return (
             <Layout>
                 <Meta />
@@ -92,7 +98,7 @@ class Index extends Component {
                     >
                         <Menu
                             mode="inline"
-                            defaultSelectedKeys={['2']}
+                            defaultSelectedKeys={['3']}
                             defaultOpenKeys={['sub1']}
                             style={{ height: '100%', borderRight: 0 }}
                             onClick={this.onMenuClick}
