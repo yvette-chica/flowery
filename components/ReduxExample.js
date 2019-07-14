@@ -4,18 +4,16 @@ import Counter from './Counter'
 function Examples ({ lastUpdate, light }) {
   return (
     <div>
-      <Clock lastUpdate={lastUpdate} light={light} />
-      <Counter />
+        <Clock lastUpdate={lastUpdate} light={light} />
+        <Counter />
     </div>
   )
 }
 
-function mapStateToProps (state) {
-  const { counterReducer: { lastUpdate, light } } = state
-  return { lastUpdate, light }
-}
-
-export default connect(mapStateToProps)(Examples)
+export default connect(state => ({
+    lastUpdate: state.counterReducer.lastUpdate,
+    light: state.counterReducer.light,
+}))(Examples)
 
 const Clock = ({ lastUpdate, light }) => {
   return (

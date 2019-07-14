@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux'
 import counterReducer from './modules/counter'
-import videoReducer from './modules/videoDetail'
+import videoDetail from './modules/videoDetail'
+import videoList from './modules/videoList'
 
 
 // REDUCERS
 export default combineReducers({
     counterReducer,
-    videoReducer,
+    videoDetail,
+    videoList,
 })

@@ -41,7 +41,7 @@ const SiteLayout = ({ children, collapsed, onCollapse, onMenuClick, headerConten
                 </Sider> 
                 <Content>{children}</Content>
             </Layout>
-            <Footer>Burning Toast © 2019</Footer>
+            <Footer>Flowery Languages © 2019</Footer>
         </Layout>
     )
 }

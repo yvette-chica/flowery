@@ -1,12 +1,19 @@
-import createReducer from '../util/createReducer'
+import { createAction, handleActions } from 'redux-actions'
 
 const initialState = {
     selectedVideo: null,
     vocabulary: [],
 }
 
-const reducer = createReducer(initialState, {
+// Actions
+export const videoSelected = createAction('VIDEO_SELECTED')
 
-}) 
+
+const reducer = handleActions({
+    [videoSelected]: (state, { payload }) => ({
+        ...state,
+        selectedVideo: payload,
+    })
+}, initialState) 
 
 export default reducer

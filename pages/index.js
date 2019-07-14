@@ -1,9 +1,11 @@
 import { Component } from 'react'
+import { connect } from 'react-redux'
+import SearchBar from '../components/SearchBar'
+import VideoList from '../components/VideoList'
 import Youtube from '../components/youtube'
 import Layout from '../components/SiteLayout'
-import { connect } from 'react-redux'
 import { startClock, serverRenderClock } from '../modules/counter'
-import Examples from '../components/ReduxExample'
+import VideoDetail from '../components/VideoDetail'
 
 
 const views = {
@@ -53,11 +55,14 @@ class Index extends Component {
 
         if (this.state.view === views.preview) {
             agendaView = (
-                <div/>
+                <div>
+                    <SearchBar />
+                    <VideoList />
+                </div>
             )
         } else if (this.state.view === views.edit) {
             agendaView = (
-                <Examples />
+                <VideoDetail />
             )
         } else if (this.state.view === views.update) {
             agendaView = (
