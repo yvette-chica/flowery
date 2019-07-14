@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import Counter from './counter'
+import Counter from './Counter'
 
 function Examples ({ lastUpdate, light }) {
   return (
@@ -11,7 +11,7 @@ function Examples ({ lastUpdate, light }) {
 }
 
 function mapStateToProps (state) {
-  const { lastUpdate, light } = state
+  const { counterReducer: { lastUpdate, light } } = state
   return { lastUpdate, light }
 }
 

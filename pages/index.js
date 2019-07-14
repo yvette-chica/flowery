@@ -2,8 +2,8 @@ import { Component } from 'react'
 import Youtube from '../components/youtube'
 import Layout from '../components/SiteLayout'
 import { connect } from 'react-redux'
-import { startClock, serverRenderClock } from '../actions'
-import Examples from '../components/reduxExample'
+import { startClock, serverRenderClock } from '../modules/counter'
+import Examples from '../components/ReduxExample'
 
 
 const views = {
