@@ -1,7 +1,9 @@
 import { Component } from 'react'
 import { Input } from 'antd'
 import { connect } from 'react-redux'
-import { fetchVideos } from '../modules/videoList'
+import { fetchVideos } from '../../modules/videoList'
+
+import './style.styl'
 
 const { Search } = Input
 
@@ -13,10 +15,11 @@ class SearchBar extends Component {
     render() {
         return (
             <Search
-                placeholder="input search text"
+                className="search-bar"
+                placeholder="Search videos on Youtube"
                 defaultValue={this.props.lastSearchTerm}
                 onSearch={this.handleSearch}
-                style={{ width: 200 }}
+                style={{ width: 300 }}
             />
         )
     }

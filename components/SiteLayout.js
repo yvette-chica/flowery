@@ -27,11 +27,11 @@ const SiteLayout = ({ children, collapsed, onCollapse, onMenuClick, headerConten
                     >
                         <Menu.Item key="1">
                             <Icon type="profile"/>
-                            <span>Preview</span>
+                            <span>Search Youtube</span>
                         </Menu.Item>
                         <Menu.Item key="2">
                             <Icon type="edit"/>
-                            <span>Redux</span>
+                            <span>Current Video</span>
                         </Menu.Item>
                         <Menu.Item key="3">
                             <Icon type="usergroup-add"/>

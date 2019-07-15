@@ -2,17 +2,13 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { videoSelected } from '../../modules/videoDetail'
 import Video from './Video'
+import Grid from '../InfiniteScrollGrid'
 
 class VideoList extends Component {
-    handleClick = event => {
-        console.log('event', event)
-    }
-
     render() {
         return (
-            <div>
-                <div>The list</div>
-                {
+            <Grid
+                items={
                     this.props.videos.map((video, index) => (
                         <Video
                             key={index}
@@ -22,7 +18,7 @@ class VideoList extends Component {
                         />
                     ))
                 }
-            </div>
+            />
         )
     }
 }
@@ -31,5 +27,5 @@ export default connect(state => ({
     videos: state.videoList.videos,
     loading: state.videoList.loading,
 }), {
-    videoSelected
+    videoSelected,
 })(VideoList)

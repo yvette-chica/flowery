@@ -2,9 +2,7 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import SearchBar from '../components/SearchBar'
 import VideoList from '../components/VideoList'
-import Youtube from '../components/youtube'
 import Layout from '../components/SiteLayout'
-import { startClock, serverRenderClock } from '../modules/counter'
 import VideoDetail from '../components/VideoDetail'
 
 
@@ -20,24 +18,7 @@ class Index extends Component {
         view: '1',
     }
 
-    static getInitialProps ({ reduxStore, req }) {
-        const isServer = !!req
-        reduxStore.dispatch(serverRenderClock(isServer))
-
-        return {}
-    }
-
-    componentDidMount () {
-        const { dispatch } = this.props
-        this.timer = startClock(dispatch)
-    }
-
-    componentWillUnmount () {
-        clearInterval(this.timer)
-    }
-
     onCollapse = collapsed => {
-        console.log(collapsed);
         this.setState({ collapsed });
     };
 
@@ -66,11 +47,10 @@ class Index extends Component {
             )
         } else if (this.state.view === views.update) {
             agendaView = (
-                <Youtube />
+                <div />
             )
         }
         
-        console.log('this.state', this.state)
         return (
             <Layout
                 collapsed={this.state.collapsed}
