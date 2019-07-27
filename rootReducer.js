@@ -1,10 +1,10 @@
 import { combineReducers } from 'redux'
-import videoDetail from './modules/videoDetail'
+import lessons from './modules/lessons'
 import videoList from './modules/videoList'
 
 
 // REDUCERS
 export default combineReducers({
-    videoDetail,
+    lessons,
     videoList,
 })

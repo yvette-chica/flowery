@@ -1,7 +1,5 @@
 import { createAction, handleActions } from 'redux-actions'
-import youtubeProxy from '../youtube'
-import { videoSelected } from './videoDetail'
-import { gapiKey } from '../keys'
+import { searchForVideos } from '../proxies/youtubeProxy'
 
 const initialState = {
     videos: [],
@@ -17,27 +15,10 @@ export const videosSearched = createAction('VIDEOS_SEARCHED')
 export const fetchVideos = searchTerm => (dispatch, getState) => {
     dispatch(videosSearching(searchTerm))
 
-    const state = getState()
-
-    youtubeProxy.get('/search', {
-        params: {
-            q: searchTerm,
-            releventLanguage: 'de',
-            part: 'snippet',
-            maxResults: 9,
-            key: gapiKey,
-            type: 'video',
-        }
-    })
+    searchForVideos(searchTerm)
         .then(response => {
             const { data: { items } } = response
             dispatch(videosSearched(items))
-            if (
-                !state.videoDetail.selectedVideo
-                    && items.length
-            ) {
-                dispatch(videoSelected(items[0]))
-            } 
         })
 }
 

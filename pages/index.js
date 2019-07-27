@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import SearchBar from '../components/SearchBar'
 import VideoList from '../components/VideoList'
 import Layout from '../components/SiteLayout'
-import VideoDetail from '../components/VideoDetail'
+import LessonDetail from '../components/LessonDetail'
+import LessonList from '../components/LessonList'
 
 
 const views = {
@@ -36,18 +37,18 @@ class Index extends Component {
 
         if (this.state.view === views.preview) {
             agendaView = (
+                <LessonList />
+            )
+        } else if (this.state.view === views.edit) {
+            agendaView = (
                 <div>
                     <SearchBar />
                     <VideoList />
                 </div>
             )
-        } else if (this.state.view === views.edit) {
-            agendaView = (
-                <VideoDetail />
-            )
         } else if (this.state.view === views.update) {
             agendaView = (
-                <div />
+                <LessonDetail />
             )
         }
         
